@@ -1,10 +1,13 @@
 # philble
 Python 3 library to control Philips Hue lights over Bluetooth Low Energy (BLE). Uses
-the` Adafruit_Bluefruit_LE` library to issue Bluetooth commands.
+the [`Adafruit_BluefruitLE`](https://github.com/adafruit/Adafruit_Python_BluefruitLE) library to issue Bluetooth commands.
 
 * Works on Linux and macOS (tested on 10.14)
 * Install: `pip install .`
-* Minimal working example: See **`example.py`**
+* Minimal working example: See [**`example.py`**](https://github.com/npaun/philble/blob/master/example.py)
+* If things go wrong: [HOWTO: Factory reset a Hue bulb](https://github.com/mozilla-iot/wiki/wiki/HOWTO:-Factory-reset-a-Hue-bulb) by Mozilla IOT.
+
+<img src="https://github.com/npaun/philble/blob/master/docs/blinkenlights.gif?raw=true" alt="Demo of philble controlling lights" title="Cooooooolooooors" width="300" />
 
 ## API
 See `philble/client.py` for commands available and mapping on to the BLE interface.
@@ -32,3 +35,6 @@ in a global variable called `l`.
 * [ ] Save state after lamp power-cycle.
 * [ ] Create demo to activate lamps relative to sunrise/sunset.
 
+## Resources consulted
+* <https://gist.github.com/shinyquagsire23/f7907fdf6b470200702e75a30135caf3>
+* <https://www.reddit.com/r/Hue/comments/eq0y3y/philips_hue_bluetooth_developer_documentation/>
