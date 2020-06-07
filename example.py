@@ -7,20 +7,25 @@ ble = Adafruit_BluefruitLE.get_provider()
 ble.initialize()
 
 def blink(client):
+    print('Blinking')
     for i in range(10):
-        time.sleep(.5)
+        time.sleep(1)
+        print('on')
         client.power(True)
-        time.sleep(.5)
+        time.sleep(1)
+        print('off')
         client.power(False)
 
 def main():
+    print('Discovering')
     ble.clear_cached_data()
     adapter = ble.get_default_adapter()
     adapter.power_on()
     adapter.start_scan()
-    # ... Ensure your device gets loaded
-    device = ble.find_device(uuid.UUID('7733a6b6-7027-4704-927c-8e3705c1b8d2'))
+    device = ble.find_device()
     adapter.stop_scan()
+    print('Discovered')
+
     device.connect()
     
     time.sleep(.5)
@@ -28,7 +33,7 @@ def main():
     blink(client)
 
     time.sleep(.5)
-    adapter.poweroff()
+    adapter.power_off()
 
 
 
