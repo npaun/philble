@@ -27,6 +27,9 @@ A small demo, providing an `IPython` REPL for controlling light fixtures. Modify
 `config.py` to provide names for your lights. The light client objects are available
 in a global variable called `l`.
 
+<img src="https://github.com/npaun/philble/blob/master/docs/lightcom-screenshot.png?raw=true" alt="Example lightcom session" title="The lightbulb REPL of the future" width="750" />
+
+
 ## TODO:
 * [ ] Figure out which sleeps are due to BLE library oddness and which are due to my sloppy implementation.
 * [ ] Read current values for these parameters.
