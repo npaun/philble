@@ -1,10 +1,12 @@
 # philble
 Python 3 library to control Philips Hue lights over Bluetooth Low Energy (BLE). Uses
-the` Adafruit_Bluefruit_LE` library to issue Bluetooth commands.
+the [`Adafruit_BluefruitLE`](https://github.com/adafruit/Adafruit_Python_BluefruitLE) library to issue Bluetooth commands.
 
 * Works on Linux and macOS (tested on 10.14)
 * Install: `pip install .`
-* Minimal working example: See **`example.py`**
+* Minimal working example: See [**`example.py`**](https://github.com/npaun/philble/blob/master/example.py)
+
+<img src="https://github.com/npaun/philble/blob/master/docs/blinkenlights.gif?raw=true" alt="Demo of philble controlling lights" title="Cooooooolooooors" width="300" />
 
 ## API
 See `philble/client.py` for commands available and mapping on to the BLE interface.
