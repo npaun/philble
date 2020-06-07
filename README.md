@@ -18,7 +18,7 @@ client = philble.client.Client(device)
 ```
 
 * `power(False | True)`
-* `brightness(0..255)`
+* `brightness(1..254)`
 * `temperature(153...454)`: Color temperature *decreases* as index increases, for some reason.
 * `color(hex string)`
 
