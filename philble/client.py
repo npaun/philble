@@ -21,11 +21,26 @@ def command(code):
         cmd_uuid = uuid.UUID('932c32bd-'+ str(code).zfill(4) + '-47a2-835a-a8d455b859dd')
         @functools.wraps(f)
         def wrapper(self, *args, **kwargs):
-            return f(CharacteristicWrap(self.service.find_characteristic(cmd_uuid)), *args, **kwargs)
+            f(CharacteristicWrap(self.service.find_characteristic(cmd_uuid)), *args, **kwargs)
+            return self
         wrapper.uuid = cmd_uuid
         return wrapper
     return decorator
 
+class Group:
+    def __init__(self, clients):
+        self.clients = clients
+
+    def __getattr__(self, attr):
+        if hasattr(Client, attr):
+            def proxy(*args, **kwargs):
+                for client in self.clients:
+                    getattr(client, attr)(*args, **kwargs)
+                return self
+
+            return proxy
+        else:
+            raise AttributeError('Nope')
 
 class Client:
     uuid = uuid.UUID('932c32bd-'+ '0000' + '-47a2-835a-a8d455b859dd')

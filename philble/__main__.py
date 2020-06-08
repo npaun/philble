@@ -12,11 +12,15 @@ def main():
     lights = discover.discover(ble, config.lights)
 
     clients_dict = {light_id: client.Client(light) for light_id, light in lights.items()}
+    clients_dict['all'] = client.Group(list(clients_dict.values()))
     clients = SimpleNamespace(**clients_dict)
 
     print('\033[0;35mLIGHT COMMANDER\033[0m')
     print('\033[1mLights (l) = \033[0m', ", ".join('.%s' % key for key in clients_dict.keys()))
-    embed(user_ns={'l': clients}, colors='Neutral')
+    embed(user_ns={
+        'l': clients, 
+        'Group': client.Group}, 
+        colors='Neutral')
     # Ensure last command gets written
     time.sleep(.5) 
 
