@@ -18,7 +18,7 @@ client = philble.client.Client(device)
 ```
 
 * `power(False | True)`
-* `brightness(0..255)`
+* `brightness(1..254)`
 * `temperature(153...454)`: Color temperature *decreases* as index increases, for some reason.
 * `color(hex string)`
 
@@ -26,6 +26,9 @@ client = philble.client.Client(device)
 A small demo, providing an `IPython` REPL for controlling light fixtures. Modify
 `config.py` to provide names for your lights. The light client objects are available
 in a global variable called `l`.
+
+<img src="https://github.com/npaun/philble/blob/master/docs/lightcom-screenshot.png?raw=true" alt="Example lightcom session" title="The lightbulb REPL of the future" width="750" />
+
 
 ## TODO:
 * [ ] Figure out which sleeps are due to BLE library oddness and which are due to my sloppy implementation.
