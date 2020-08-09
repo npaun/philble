@@ -13,7 +13,7 @@ the [`Adafruit_BluefruitLE`](https://github.com/adafruit/Adafruit_Python_Bluefru
 See `philble/client.py` for commands available and mapping on to the BLE interface.
 
 ```python
-import philble.clint
+import philble.client
 client = philble.client.Client(device)
 ```
 
