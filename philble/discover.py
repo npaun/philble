@@ -26,10 +26,10 @@ def discover(ble, config):
             break
 
     if len(lights) == 0:
-        raise SystemExit
+        os._exit(1) # Adafruit library appears to hang on normal exit
 
     new_lights = 0
-    names = dict()
+    lights_by_name = {}
 
     print('found %d lights:' % len(lights))
     for light in lights:
@@ -39,9 +39,9 @@ def discover(ble, config):
             new_lights += 1
             name = "new_%d" % new_lights
 
-        names[name] = light
+        lights_by_name[name] = light
         print("%s (%s %s)" % (name, light.name, light.id))
         light.connect()
 
     time.sleep(.5)
-    return names
+    return lights_by_name
