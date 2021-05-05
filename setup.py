@@ -8,6 +8,7 @@ setup(name='philble',
       packages=['philble'],
       install_requires=[
           # Version from pip doesn't work on macOS Mojave
-          'Adafruit_BluefruitLE @ git+https://git@github.com/adafruit/Adafruit_Python_BluefruitLE'
+          # Adafruit version doesn't work on modern Linux
+          'Adafruit_BluefruitLE @ git+https://github.com/donatieng/Adafruit_Python_BluefruitLE'
           ],
       zip_safe=False)
